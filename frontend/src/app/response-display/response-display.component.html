@@ -1,1 +1,8 @@
-<p>response-display works!</p>
+<div *ngIf="response; else noResponse">
+    <h3>Response from GPT:</h3>
+    <p>{{ response }}</p>
+</div>
+  
+<ng-template #noResponse>   
+    <p>No response yet...</p>
+</ng-template>
