@@ -11,25 +11,25 @@
 ## Installation
 Before you start using `gpt-response-to-word`, make sure you have Python installed on your machine. Then, clone this repository and install the required dependencies.
 
-\```bash
-git clone https://github.com/danielemiller/gpt-response-to-word.git
-cd gpt-response-to-word
-pip install -r requirements.txt
-\```
+
+    git clone https://github.com/danielemiller/gpt-response-to-word.git
+    cd gpt-response-to-word
+    pip install -r requirements.txt
+
 
 ## Usage
 To use this tool, run the main Python script (`gpt_to_word.py`) and follow the on-screen instructions.
 
-\```bash
-python gpt_to_word.py
-\```
+
+    python gpt_to_word.py
+
 
 ## Configuration
 Ensure you have a `.env` file in the root directory with your OpenAI API key:
 
-\```
-OPENAI_API_KEY=your_api_key_here
-\```
+
+    OPENAI_API_KEY=your_api_key_here
+
 
 ## Contributing
 Contributions to `gpt-response-to-word` are welcome! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
