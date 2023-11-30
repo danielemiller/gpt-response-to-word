@@ -1,27 +1,40 @@
 # GPT Response to Word
 
 ## Project Overview
-`gpt-response-to-word` is a Python-based tool designed to capture responses from OpenAI's GPT models and save them into Microsoft Word documents. This utility is particularly useful for preserving the outputs of AI-powered chat interactions, making them easy to share and reference.
+`gpt-response-to-word` is an application that integrates OpenAI's GPT models with a Python Flask backend and Angular frontend to capture AI-powered chat responses and save them into Microsoft Word documents. It allows for dynamic interaction with the GPT model and streamlined document generation.
 
 ## Features
-- **Automated Saving**: Automatically saves GPT responses to a Word document.
-- **Customizable Output**: Allows users to specify the output directory and filename.
-- **Error Handling**: Includes checks to ensure correct processing and saving of responses.
+- **Interactive Query Interface**: An Angular-based frontend for inputting queries to the GPT model.
+- **Automated Saving**: Backend functionality to automatically save GPT responses to a Word document.
+- **Customizable Output**: Users can specify the output directory and filename for the Word document.
+- **Error Handling**: Includes robust checks to ensure correct processing and saving of responses.
+- **Response Caching**: Efficient response management through caching mechanisms in the backend.
 
 ## Installation
-Before you start using `gpt-response-to-word`, make sure you have Python installed on your machine. Then, clone this repository and install the required dependencies.
-
+Before using `gpt-response-to-word`, ensure Python and Node.js are installed on your machine. Clone the repository and install the required dependencies for both backend and frontend.
 
     git clone https://github.com/danielemiller/gpt-response-to-word.git
     cd gpt-response-to-word
+
+    # Backend setup
+    cd backend
     pip install -r requirements.txt
+
+    # Frontend setup
+    cd ../frontend
+    npm install
 
 
 ## Usage
 To use this tool, run the main Python script (`gpt_to_word.py`) and follow the on-screen instructions.
 
-
-    python gpt_to_word.py
+    # Start the Flask backend
+    cd backend
+    flask run
+    
+    # In a new terminal, start the Angular frontend
+    cd frontend
+    ng serve
 
 
 ## Configuration
