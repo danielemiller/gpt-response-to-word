@@ -1,17 +1,35 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8
+# Stage 1: Build the Angular frontend
+FROM node:14 as build-stage
+WORKDIR /app
+COPY frontend/package*.json /app/
+RUN npm install
+COPY frontend/ /app/
+RUN npm run build
 
-# Set the working directory in the container
+# Stage 2: Set up the Python backend and Nginx to serve the frontend
+FROM python:3.8
 WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /usr/src/app
-COPY . .
+# Copy the backend code
+COPY backend/ .
 
-# Install any needed packages specified in requirements.txt
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Define environment variables
+# Copy built Angular app from the first stage
+COPY --from=build-stage /app/dist/frontend /usr/share/nginx/html
+
+# Install Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Copy Nginx configuration (You should have this file prepared)
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80 for the web server
+EXPOSE 80
+
+# Define environment variable for OpenAI API key
 ENV OPENAI_API_KEY=""
 
-# Run gpt_to_word.py when the container launches
-CMD ["python", "./gpt_to_word.py"]
+# Start Nginx and the Python application
+CMD service nginx start && python ./gpt_to_word.py

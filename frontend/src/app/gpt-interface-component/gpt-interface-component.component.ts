@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
 import { GptService } from '../gpt.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { QueryFormComponent } from '../query-form/query-form.component';
+import { ResponseDisplayComponent } from '../response-display/response-display.component';
 
 @Component({
   selector: 'app-gpt-interface',
+  standalone: true,
+  imports: [CommonModule, QueryFormComponent, ResponseDisplayComponent, HttpClientModule],
   template: `
     <app-query-form (responseEvent)="handleResponse($event)" (errorEvent)="handleError($event)"></app-query-form>
     <app-response-display [response]="response"></app-response-display>
