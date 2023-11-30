@@ -11,19 +11,19 @@ import { ResponseDisplayComponent } from '../response-display/response-display.c
   imports: [CommonModule, QueryFormComponent, ResponseDisplayComponent, HttpClientModule],
   template: `
     <app-query-form (responseEvent)="handleResponse($event)" (errorEvent)="handleError($event)"></app-query-form>
-    <app-response-display [response]="response"></app-response-display>
-    <button *ngIf="response" (click)="downloadResponse()">Download as Word Document</button>
+    <app-response-display [responseData]="responseObj"></app-response-display>
+    <button *ngIf="responseObj?.response" (click)="downloadResponse()">Download as Word Document</button>
     <p *ngIf="error" class="error">{{ error }}</p>
   `
 })
 export class GptInterfaceComponent {
-  response: string | null = null;
+  responseObj: { query: string; response: string } | null = null;
   error: string | null = null;
 
   constructor(private gptService: GptService) {}
 
-  handleResponse(data: string) {
-    this.response = data;
+  handleResponse(data: { query: string; response: string }) {
+    this.responseObj = data;
   }
 
   handleError(error: string) {
@@ -31,8 +31,8 @@ export class GptInterfaceComponent {
   }
 
   downloadResponse() {
-    if (this.response) {
-      this.gptService.downloadDocument(this.response).subscribe(blob => {
+    if (this.responseObj?.query) {
+      this.gptService.downloadDocument(this.responseObj?.query).subscribe(blob => {
         const url = window.URL.createObjectURL(blob);
         const anchor = document.createElement('a');
         anchor.href = url;

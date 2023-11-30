@@ -1,6 +1,6 @@
-<div *ngIf="response; else noResponse">
+<div *ngIf="responseData?.response; else noResponse">
     <h3>Response from GPT:</h3>
-    <p>{{ response }}</p>
+    <p>{{ responseData?.response }}</p>
 </div>
   
 <ng-template #noResponse>   

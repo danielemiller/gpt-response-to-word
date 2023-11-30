@@ -14,7 +14,7 @@ export class QueryFormComponent {
   userQuery = '';
   isLoading = false;
   error: string | null = null;
-  @Output() responseEvent = new EventEmitter<string>();  // Emit the response
+  @Output() responseEvent = new EventEmitter<{query: string, response: string}>();  // Emit the query and response
   @Output() errorEvent = new EventEmitter<string>();     // Emit any errors
 
   constructor(private gptService: GptService) {}
@@ -23,8 +23,9 @@ export class QueryFormComponent {
     this.isLoading = true;
     this.gptService.askGPT(this.userQuery).subscribe({
       next: (data) => {
+        console.log(data);
         this.isLoading = false;
-        this.responseEvent.emit(data.response);  // Emit the response
+        this.responseEvent.emit({query: this.userQuery, response: data});  // Emit the query and response together
       },
       error: (err) => {
         this.isLoading = false;

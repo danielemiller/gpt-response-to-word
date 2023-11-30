@@ -9,9 +9,13 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./response-display.component.css']
 })
 export class ResponseDisplayComponent {
-  @Input() response: string | null;
-  
-  constructor(){
-    this.response = null;
+  @Input() responseData: { query: string; response: string } | null;
+
+  constructor() {
+    this.responseData = null;
+  }
+
+  get response() {
+    return this.responseData ? this.responseData.response : null;
   }
 }
