@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,5 +13,9 @@ export class GptService {
 
   askGPT(query: string) {
     return this.http.post<any>(this.apiUrl, { query });
+  }
+
+  downloadDocument(query: string): Observable<Blob> {
+    return this.http.post<Blob>(this.apiUrl + '/generate-document', { query }, { responseType: 'blob' as 'json' });
   }
 }
