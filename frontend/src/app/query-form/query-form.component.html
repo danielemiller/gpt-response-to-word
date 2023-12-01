@@ -1,12 +1,13 @@
-<div class="query-form-container">
-    <form (ngSubmit)="submitQuery()" class="query-form">
-      <textarea [(ngModel)]="userQuery" name="query" required class="query-textarea" id="userQuery"></textarea>
-      <button type="submit" [disabled]="isLoading" class="submit-button">Ask GPT</button>
-    </form>
-    <div *ngIf="isLoading" class="loading-container">
-      <p class="loading-text">Loading...</p>
-    </div>
-    <div *ngIf="error" class="error-container">
-      <p class="error-message">{{ error }}</p>
-    </div>
-</div>
+<section class="response-container" *ngIf="requestMade">
+    <ng-container *ngIf="responseData?.response; else noResponse">
+      <h3 class="response-heading">Response from GPT:</h3>
+      <p class="response-content">{{ responseData?.response }}</p>
+    </ng-container>
+    
+    <ng-template #noResponse>   
+      <div class="no-response">
+        <p>Crafting you an awesome response...just a few more seconds...</p>
+      </div>
+    </ng-template>
+</section>
+  

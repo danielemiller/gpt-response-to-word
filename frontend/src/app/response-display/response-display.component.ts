@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ResponseDisplayComponent {
   @Input() responseData: { query: string; response: string } | null;
+  @Input() requestMade: boolean = false;
+
 
   constructor() {
     this.responseData = null;
