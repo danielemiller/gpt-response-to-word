@@ -1,0 +1,70 @@
+/* Styles for the query form container */
+.query-form-container {
+    max-width: 600px; /* or any other width */
+    margin: auto;
+}
+
+/* Styles for the form */
+.query-form {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* ensures consistent space between children */
+}
+
+/* Styles for the textarea */
+.query-textarea {
+    width: calc(100% - 30px); /* Adjusted for padding */
+    min-height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+}
+
+/* Styles for the submit button */
+.submit-button {
+    padding: 10px;
+    border: none;
+    background-color: #5C6BC0;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adds a transition effect on hover */
+}
+
+.submit-button:hover,
+.submit-button:focus {
+    background-color: #3f51b5; /* Darkens button color on hover/focus */
+}
+
+/* Styles for the loading container */
+.loading-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styles for the loading text */
+.loading-text {
+    color: #5C6BC0;
+    font-weight: bold;
+}
+
+/* Styles for the error container */
+.error-container {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    color: #721c24;
+    text-align: center;
+}
+
+/* Styles for the error message */
+.error-message {
+    margin: 0;
+}

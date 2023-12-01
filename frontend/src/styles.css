@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+/* Base styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Typography */
+h1, h2, h3, p {
+    margin: 0;
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+/* Global styles.css or app.component.css */
+
+/* Center the container holding the button and add margin */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  /* Style for the button if not already defined */
+  .global-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5C6BC0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+  
+  .global-button:hover {
+    background-color: #4e5ba6; /* A slightly darker shade on hover */
+  }
+  
+  .global-button:disabled {
+    background-color: #a8a8a8; /* A greyed out background for disabled state */
+    cursor: not-allowed;
+  }
+  
+  

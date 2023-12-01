@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './query-form.component.html',
+  styleUrls: ['./query-form.component.css']
 })
 export class QueryFormComponent {
   userQuery = '';

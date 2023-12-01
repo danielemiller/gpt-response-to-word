@@ -1,8 +1,10 @@
-<div *ngIf="responseData?.response; else noResponse">
-    <h3>Response from GPT:</h3>
-    <p>{{ responseData?.response }}</p>
-</div>
+<section class="response-container" *ngIf="responseData?.response; else noResponse">
+    <h3 class="response-heading">Response from GPT:</h3>
+    <p class="response-content">{{ responseData?.response }}</p>
+  </section>
   
-<ng-template #noResponse>   
-    <p>No response yet...</p>
-</ng-template>
+  <ng-template #noResponse>   
+    <div class="no-response">
+      <p>No response yet...</p>
+    </div>
+  </ng-template>

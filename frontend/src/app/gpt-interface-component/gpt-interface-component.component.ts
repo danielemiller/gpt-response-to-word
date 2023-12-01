@@ -12,9 +12,10 @@ import { ResponseDisplayComponent } from '../response-display/response-display.c
   template: `
     <app-query-form (responseEvent)="handleResponse($event)" (errorEvent)="handleError($event)"></app-query-form>
     <app-response-display [responseData]="responseObj"></app-response-display>
-    <button *ngIf="responseObj?.response" (click)="downloadResponse()">Download as Word Document</button>
+    <button *ngIf="responseObj?.response" (click)="downloadResponse()" class="global-button">Download as Word Document</button>
     <p *ngIf="error" class="error">{{ error }}</p>
-  `
+  `,
+  styleUrls: ['./gpt-interface-component.component.css']
 })
 export class GptInterfaceComponent {
   responseObj: { query: string; response: string } | null = null;

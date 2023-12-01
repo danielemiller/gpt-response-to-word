@@ -1,9 +1,70 @@
-div {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    padding: 15px;
+/* Styles for the response container */
+.response-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-button {
+    margin-top: 20px; /* Adjust as needed for space between components */
+    padding: 10px 20px;
+    border: none;
+    background-color: #5C6BC0;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
   }
   
-  h3 {
-    margin-bottom: 10px;
+.download-button:hover {
+background-color: #4e5ba6; /* Darker shade on hover */
+}
+
+.download-button:disabled {
+background-color: #a8a8a8; /* Grey out the button when disabled */
+cursor: not-allowed;
+}
+  
+/* Styles for the response heading */
+.response-heading {
+margin-bottom: 10px;
+color: #5C6BC0; /* Theme color for the heading */
+font-size: 1.25rem; /* slightly larger font size for the heading */
+}
+
+/* Styles for the response content */
+.response-content {
+white-space: pre-wrap; /* respects the space and line breaks in the response */
+}
+
+/* Styles for the 'no response' message */
+.no-response {
+text-align: center;
+padding: 20px;
+background-color: #f0f0f0; /* different background to distinguish state */
+border-radius: 8px; /* consistent rounded corners */
+margin-top: 20px; /* maintains spacing from other elements */
+}
+
+/* Styles for the button */
+.download-button {
+    margin-top: 20px; /* Adjust as needed for space between components */
+    padding: 10px 20px;
+    border: none;
+    background-color: #5C6BC0;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .download-button:hover {
+    background-color: #4e5ba6; /* Darker shade on hover */
+  }
+  
+  .download-button:disabled {
+    background-color: #a8a8a8; /* Grey out the button when disabled */
+    cursor: not-allowed;
   }
